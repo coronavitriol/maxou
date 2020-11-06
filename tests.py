@@ -65,6 +65,7 @@ def deploiement(*tests):
         print(step2)
         print(os.popen('docker pause PROJET').read())
         print(os.popen('docker container rm --force PROJET').read())
+        print(os.popen('docker image rm --force data-eng').read())
         return False
     else:
         print(step1)
@@ -82,6 +83,7 @@ def deploiement(*tests):
     del cpt,test_
     print(os.popen('docker pause PROJET').read())
     print(os.popen('docker container rm --force PROJET').read())
+    print(os.popen('docker image rm --force data-eng').read())
     print("Let's upload the git...")
     print(os.popen('git add .').read())
     print(os.popen('git commit -m "make it better"').read())

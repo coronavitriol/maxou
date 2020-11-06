@@ -66,9 +66,6 @@ def deploiement(*tests):
         if test_.validation==False:       
             raise "échec"
     print("Let's upload the git...")
-    print(os.popen('git commit -m "make it better"').read())
-    print(os.popen('git push').read())
-    print(os.popen('git push heroku master').read())
     return True
 
 deploiement(test1,test2,test3,test4,test5)

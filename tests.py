@@ -7,6 +7,9 @@ Created on Fri Nov  6 16:47:30 2020
 
 import requests
 import os
+import time as tempo
+import subprocess
+import sys
 
 def test1():
     dictToSend = {'question':'what is the answer?'}
@@ -55,22 +58,6 @@ class Test:
             print(self.name+' has failed.')
 
 def deploiement(*tests):
-    print("Creation of the docker image...")
-    step1=os.popen("docker build -t data-eng:latest .").read()
-    step2=os.popen("docker run --name PROJET -d -p 5000:5000 data-eng").read()
-    if "Error" in step1+step2:
-        print("Fail build and run the docker image")
-        print("History :")
-        print(step1)
-        print(step2)
-        print(os.popen('docker pause PROJET').read())
-        print(os.popen('docker container rm --force PROJET').read())
-        print(os.popen('docker image rm --force data-eng').read())
-        return False
-    else:
-        print(step1)
-        print(step2)
-    del step1,step2
     print("Begining of the tests...")
     cpt=0
     for test in tests:
@@ -81,9 +68,6 @@ def deploiement(*tests):
         if test_.validation==False:       
             return False
     del cpt,test_
-    print(os.popen('docker pause PROJET').read())
-    print(os.popen('docker container rm --force PROJET').read())
-    print(os.popen('docker image rm --force data-eng').read())
     print("Let's upload the git...")
     print(os.popen('git add .').read())
     print(os.popen('git commit -m "make it better"').read())

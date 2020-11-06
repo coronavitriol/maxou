@@ -35,6 +35,7 @@ func main() {
 	CMD_call(commandes5)
 	fmt.Printf("Let's upload the git...")
 	CMD_call(commandes6)
+	fmt.Printf("Let's upload the git...")
 	CMD_call(commandes7)
 	CMD_call(commandes8)
 	CMD_call(commandes9)

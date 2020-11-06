@@ -23,6 +23,7 @@ func main() {
 	commandes3 := []string{"docker", "pause", "PROJET"}
 	commandes4 := []string{"docker", "container", "rm", "--force", "PROJET"}
 	commandes5 := []string{"docker", "image", "rm", "--force", "data-eng"}
+	commandes55 := []string{"heroku", "login"}
 	commandes6 := []string{"git", "add", "."}
 	commandes7 := []string{"git", "commit", "-m", "\"update\""}
 	commandes8 := []string{"git", "push"}
@@ -34,6 +35,7 @@ func main() {
 	CMD_call(commandes4)
 	CMD_call(commandes5)
 	fmt.Printf("Let's upload the git...")
+	CMD_call(commandes55)
 	CMD_call(commandes6)
 	fmt.Printf("Let's upload the git...")
 	CMD_call(commandes7)

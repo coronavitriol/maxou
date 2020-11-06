@@ -7,9 +7,7 @@ Created on Fri Nov  6 16:47:30 2020
 
 import requests
 import os
-import time as tempo
-import subprocess
-import sys
+
 
 def test1():
     dictToSend = {'question':'what is the answer?'}
@@ -66,10 +64,8 @@ def deploiement(*tests):
         test_=Test(test)
         test_.execution()
         if test_.validation==False:       
-            return False
-    del cpt,test_
+            raise "échec"
     print("Let's upload the git...")
-    print(os.popen('git add .').read())
     print(os.popen('git commit -m "make it better"').read())
     print(os.popen('git push').read())
     print(os.popen('git push heroku master').read())

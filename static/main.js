@@ -1,0 +1,45 @@
+//Javascript classique
+function Cambio(id1,id2,event) {
+	var x = document.getElementById(id1);
+	var y = document.getElementById(id2);
+	if (x.style.display == "none") {
+		x.style.display = "block";
+		y.style.display = "none";
+	} else {
+		x.style.display = "none";
+		y.style.display = "block";
+	}
+}
+
+//jQuery
+$(document).ready(function()
+	{
+		setInterval("horloge()",100); // appeler toutes les 1 secondes
+		setInterval("RAM()",50); 
+	}
+);
+function horloge() {
+	$.getJSON($SCRIPT_ROOT+'/horloge', {
+	}, function horloge(data) {
+		$("#temps").text(data.result);
+	});
+	return false;
+};
+function RAM() {
+	$.getJSON($SCRIPT_ROOT+'/RAM', {
+	}, function RAM(data) {
+		$("#RAM").text(data.result);
+	});
+	return false;
+};
+$(function() {
+    $('a#sentiments').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/sentiments', {
+        a: $('textarea[name="a"]').val()
+      }, function(data) {
+        $("#result").text(data.result);
+		$("#result").css("color",data.color);
+      });
+      return false;
+    });
+  });

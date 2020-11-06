@@ -22,9 +22,9 @@ func main() {
 	tests := []string{"python", "tests.py"}
 	commandes3 := []string{"docker", "pause", "PROJET"}
 	commandes4 := []string{"docker", "container", "rm", "--force", "PROJET"}
-	commandes5 := []string{"docker", "image", "rm", "--force", "\"data-eng\""}
+	commandes5 := []string{"docker", "image", "rm", "--force", "data-eng"}
 	commandes6 := []string{"git", "add", "."}
-	commandes7 := []string{"git", "commit", "-am", "update"}
+	commandes7 := []string{"git", "commit", "-am", "\"update\""}
 	commandes8 := []string{"git", "push"}
 	commandes9 := []string{"git", "push", "heroku", "master"}
 	CMD_call(commandes1)

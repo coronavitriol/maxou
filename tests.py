@@ -14,26 +14,29 @@ import sys
 def test1():
     dictToSend = {'question':'what is the answer?'}
     res = requests.post('http://localhost:5000/RAM', json=dictToSend)
-    print ('response from server:',res.text)
+    print('response from server:',res.text)
     print(res)
 
+
 def test2():
+    dictToSend = {'question':'what is the answer?'}
+    res = requests.post('http://localhost:5000/horloge', json=dictToSend)
+    print('response from server:',res.text)
+    print(res)
+    
+    
+def test3():
     dictToSend = {'question':'what is the answer?'}
     res = requests.post('http://localhost:5000/sfggd', json=dictToSend)
     print ('response from server:',res.text)
     print(res)
 
 
-def test3():
-    dictToSend = {'question':'what is the answer?'}
-    res = requests.post('http://localhost:5000/horloge', json=dictToSend)
-    print('response from server:',res.text)
-    print(res)
+
 
 def test4():
-    dictToSend = {'question':'what is the answer?'}
-    res = requests.post('http://localhost:5000/sentiments', json=dictToSend)
-    print('response from server:',res.text)
+    from app import analyse
+    res=analyse("I like love")
     print(res)
 
 def test5():
@@ -65,9 +68,9 @@ def deploiement(*tests):
         print('Test {}/{}'.format(cpt,len(tests)))
         test_=Test(test)
         test_.execution()
-        if test_.validation==False:       
-            raise "échec"
-    print("Let's upload the git...")
+        if test_.validation==False:
+            print("false")
+            return False
     return True
 
 deploiement(test1,test2,test3,test4,test5)

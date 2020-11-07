@@ -13,6 +13,18 @@ from datetime import datetime
 import psutil
 
 
+def analyse(phrase):
+    analyser = SentimentIntensityAnalyzer()
+    var=analyser.polarity_scores(phrase)
+    print("Negative score :",var['neg'])
+    print("Positive score :",var['pos'])
+    print("Neutral score :",var['neu'])
+    vals={var['neg']:'Negative',var['pos']:"Positive",var['neu']:"Neutral"}
+    cols={var['neg']:'#BF4C50',var['pos']:"#39c02f",var['neu']:"#000"}
+    sentiment=vals[max(var['neg'],var['pos'],var['neu'])],
+    color=cols[max(var['neg'],var['pos'],var['neu'])]
+    return sentiment,color
+
 app = Flask(__name__)
 
 
@@ -40,16 +52,10 @@ def RAM():
 
 @app.route('/sentiments')
 def sentiments():
-    a = request.args.get('a', 0, type=str)
-    analyser = SentimentIntensityAnalyzer()
-    var=analyser.polarity_scores(a)
-    print("Negative score :",var['neg'])
-    print("Positive score :",var['pos'])
-    print("Neutral score :",var['neu'])
-    vals={var['neg']:'Negative',var['pos']:"Positive",var['neu']:"Neutral"}
-    cols={var['neg']:'#BF4C50',var['pos']:"#39c02f",var['neu']:"#000"}
-    return jsonify(result=vals[max(var['neg'],var['pos'],var['neu'])],
-                   color=cols[max(var['neg'],var['pos'],var['neu'])],
+    phrase = request.args.get('phrase', 0, type=str)
+    sentiment,color=analyse(phrase)
+    return jsonify(result=sentiment,
+                   color=color,
                    )
 
 @app.errorhandler(405)

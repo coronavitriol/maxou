@@ -35,7 +35,7 @@ function RAM() {
 $(function() {
     $('a#sentiments').bind('click', function() {
       $.getJSON($SCRIPT_ROOT + '/sentiments', {
-        a: $('textarea[name="a"]').val()
+        phrase: $('textarea[name="a"]').val()
       }, function(data) {
         $("#result").text(data.result);
 		$("#result").css("color",data.color);

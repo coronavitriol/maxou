@@ -6,10 +6,8 @@ Created on Fri Nov  6 16:47:30 2020
 """
 
 import requests
-import os
-import time as tempo
-import subprocess
-import sys
+
+
 
 def test1():
     dictToSend = {'question':'what is the answer?'}

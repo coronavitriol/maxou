@@ -27,7 +27,7 @@ func main() {
 	commandes6 := []string{"git", "add", "."}
 	commandes7 := []string{"git", "commit", "-m", "\"update\""}
 	commandes8 := []string{"git", "push"}
-	commandes9 := []string{"git", "push", "heroku", "master"}
+	commandes9 := []string{"git", "push", "heroku", "HEAD:master"}
 	CMD_call(commandes1)
 	CMD_call(commandes2)
 	CMD_call(tests)

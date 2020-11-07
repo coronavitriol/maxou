@@ -6,7 +6,7 @@ Created on Fri Nov  6 16:47:30 2020
 """
 
 import requests
-
+import time as tempo
 
 
 def test1():
@@ -28,8 +28,6 @@ def test3():
     res = requests.post('http://localhost:5000/sfggd', json=dictToSend)
     print ('response from server:',res.text)
     print(res)
-
-
 
 
 def test4():
@@ -62,13 +60,14 @@ def deploiement(*tests):
     print("Begining of the tests...")
     cpt=0
     for test in tests:
+        tempo.sleep(1)
         cpt+=1
         print('Test {}/{}'.format(cpt,len(tests)))
         test_=Test(test)
         test_.execution()
         if test_.validation==False:
             print("false")
-            return False
+            raise Exception("False")
     return True
 
 deploiement(test1,test2,test3,test4,test5)

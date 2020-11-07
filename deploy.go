@@ -9,17 +9,17 @@ import (
 func CMD_call(commande []string) (string, error) {
 	cmd := exec.Command(commande[0], commande[1:]...)
 	out, err := cmd.CombinedOutput()
+	fmt.Printf("combined out:\n%s\n", string(out))
 	if err != nil {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 	}
-	fmt.Printf("combined out:\n%s\n", string(out))
 	return string(out), err
 }
 
 func main() {
 	commandes1 := []string{"docker", "build", "-t", "data-eng:latest", "."}
 	commandes2 := []string{"docker", "run", "--name", "PROJET", "-d", "-p", "5000:5000", "data-eng"}
-	tests := []string{"python", "tests.py"}
+	tests := []string{"conda", "run", "-n", "python37", "python", "tests.py"}
 	commandes3 := []string{"docker", "pause", "PROJET"}
 	commandes4 := []string{"docker", "container", "rm", "--force", "PROJET"}
 	commandes5 := []string{"docker", "image", "rm", "--force", "data-eng"}

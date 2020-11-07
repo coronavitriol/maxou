@@ -5,7 +5,7 @@ Created on Wed Nov  4 14:52:48 2020
 @author: minimilien
 """
 
-from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from AI import analyse
 from flask import Flask, render_template, request, jsonify, send_file, redirect, url_for,make_response
 import webbrowser
 from config import Projet,Version
@@ -13,17 +13,7 @@ from datetime import datetime
 import psutil
 
 
-def analyse(phrase):
-    analyser = SentimentIntensityAnalyzer()
-    var=analyser.polarity_scores(phrase)
-    print("Negative score :",var['neg'])
-    print("Positive score :",var['pos'])
-    print("Neutral score :",var['neu'])
-    vals={var['neg']:'Negative',var['pos']:"Positive",var['neu']:"Neutral"}
-    cols={var['neg']:'#BF4C50',var['pos']:"#39c02f",var['neu']:"#000"}
-    sentiment=vals[max(var['neg'],var['pos'],var['neu'])],
-    color=cols[max(var['neg'],var['pos'],var['neu'])]
-    return sentiment,color
+
 
 app = Flask(__name__)
 

@@ -31,7 +31,7 @@ def test3():
 
 
 def test4():
-    from app import analyse
+    from AI import analyse
     res=analyse("I like love")
     print(res)
 

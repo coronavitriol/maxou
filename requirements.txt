@@ -3,3 +3,4 @@ gunicorn
 psutil
 python-dotenv
 vaderSentiment
+joblib

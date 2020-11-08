@@ -5,9 +5,10 @@ Created on Sat Nov  7 10:58:36 2020
 @author: minimilien
 """
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+from joblib import dump, load
 
 def analyse(phrase):
-    analyser = SentimentIntensityAnalyzer()
+    analyser = load('analyser.joblib')
     var=analyser.polarity_scores(phrase)
     print("Negative score :",var['neg'])
     print("Positive score :",var['pos'])
@@ -17,3 +18,7 @@ def analyse(phrase):
     sentiment=vals[max(var['neg'],var['pos'],var['neu'])],
     color=cols[max(var['neg'],var['pos'],var['neu'])]
     return sentiment,color
+
+def create_model():
+    analyser = SentimentIntensityAnalyzer()
+    dump(analyser, 'analyser.joblib')

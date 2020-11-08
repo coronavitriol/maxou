@@ -20,6 +20,9 @@
 		
 		
 		<div class="menu ordi">
+			<p><h2 style="padding-top:20px;">Liens utiles</h2></p>
+			<p><a class="tablink" href="https://github.com/coronavitriol/maxou"><B>Github</B></a></p>
+			<p><a class="tablink" href="https://flask.palletsprojects.com/en/1.1.x/"><B>Flask</B></a></p>
 			<p><h2 style="padding-top:20px;">Publicité</h2></p>
 			<p><a class="tablink" href="https://www.youtube.com/watch?v=-WoRHMbWZz4"><img src="{{ url_for('static', filename='cine.png') }}" width="50px" height="50px" style="filter:invert(1);"></a></p>			
 
@@ -35,10 +38,8 @@
 				<h1>{{Projet}}</h1>
 				<p><I>EFREI 2020 - 2021</I></p>
 			</header>
-			<!--Exemples-->
 			<div class="option option2">
 				<p><textarea type=text  name=a placeholder="Insert yout text..."></textarea>
-				   
 				<p><a href=# id=sentiments class="validation">Sentiment Analysis</a>
 				<h1 id=result> </h1>
 			</div>
@@ -49,6 +50,22 @@
 			<div class="option">
 				<p><h1 id="RAM"></h1></p>
 				<p class="description"><I>Mémoire utilisée</I></p>
+			</div>
+			<div class="option">
+				<p><img class="logo" src="{{ url_for('static', filename='python_.png') }}"></p>
+				<p class="description"><I>Python was used to make the testing</I></p>
+			</div>
+			<div class="option">
+				<p><img class="logo" src="{{ url_for('static', filename='flask.png') }}"></p>
+				<p class="description"><I>Flask is the framework used to run the website</I></p>
+			</div>
+			<div class="option">
+				<p><img class="logo" src="{{ url_for('static', filename='go.png') }}"></p>
+				<p class="description"><I>Go was used to auomate the deploy</I></p>
+			</div>
+			<div class="option">
+				<p><img class="logo" src="{{ url_for('static', filename='jquery.png') }}"></p>
+				<p class="description"><I>jQuery is a cool framework to update HTML</I></p>
 			</div>
 			<footer>
 				<p>{{Projet}} V{{Version}}</p>

@@ -37,7 +37,6 @@ func main() {
 	fmt.Printf("Let's upload the git...")
 	CMD_call(commandes55)
 	CMD_call(commandes6)
-	fmt.Printf("Let's upload the git...")
 	CMD_call(commandes7)
 	fmt.Printf("Let's upload the github...")
 	CMD_call(commandes8)

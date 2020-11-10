@@ -6,11 +6,11 @@ import (
 	"os/exec"
 )
 
-func CMD_call(commande []string) (string, error) {
+func CMD_call(commande []string, debug bool) (string, error) {
 	cmd := exec.Command(commande[0], commande[1:]...)
 	out, err := cmd.CombinedOutput()
 	fmt.Printf("combined out:\n%s\n", string(out))
-	if err != nil {
+	if (err != nil) && (debug == true) {
 		log.Fatalf("cmd.Run() failed with %s\n", err)
 	}
 	return string(out), err
@@ -28,18 +28,18 @@ func main() {
 	commandes7 := []string{"git", "commit", "-m", "\"update\""}
 	commandes8 := []string{"git", "push"}
 	commandes9 := []string{"git", "push", "heroku", "HEAD:master"}
-	CMD_call(commandes1)
-	CMD_call(commandes2)
-	CMD_call(tests)
-	CMD_call(commandes3)
-	CMD_call(commandes4)
-	CMD_call(commandes5)
+	CMD_call(commandes1, true)
+	CMD_call(commandes2, true)
+	CMD_call(tests, true)
+	CMD_call(commandes3, true)
+	CMD_call(commandes4, true)
+	CMD_call(commandes5, true)
 	fmt.Printf("Let's upload the git...")
-	CMD_call(commandes55)
-	CMD_call(commandes6)
-	CMD_call(commandes7)
+	CMD_call(commandes55, true)
+	CMD_call(commandes6, true)
+	CMD_call(commandes7, true)
 	fmt.Printf("Let's upload the github...")
-	CMD_call(commandes8)
+	CMD_call(commandes8, true)
 	fmt.Printf("Let's upload the heroku...")
-	CMD_call(commandes9)
+	CMD_call(commandes9, true)
 }

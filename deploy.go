@@ -30,16 +30,18 @@ func main() {
 	commandes9 := []string{"git", "push", "heroku", "HEAD:master"}
 	CMD_call(commandes1, true)
 	CMD_call(commandes2, true)
-	CMD_call(tests, true)
+	_, err := CMD_call(tests, false)
 	CMD_call(commandes3, true)
 	CMD_call(commandes4, true)
 	CMD_call(commandes5, true)
-	fmt.Printf("Let's upload the git...")
-	CMD_call(commandes55, true)
-	CMD_call(commandes6, true)
-	CMD_call(commandes7, true)
-	fmt.Printf("Let's upload the github...")
-	CMD_call(commandes8, true)
-	fmt.Printf("Let's upload the heroku...")
-	CMD_call(commandes9, true)
+	if err == nil {
+		fmt.Printf("Let's upload the git...")
+		CMD_call(commandes55, true)
+		CMD_call(commandes6, true)
+		CMD_call(commandes7, true)
+		fmt.Printf("Let's upload the github...")
+		CMD_call(commandes8, true)
+		fmt.Printf("Let's upload the heroku...")
+		CMD_call(commandes9, true)
+	}
 }

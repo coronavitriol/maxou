@@ -10,7 +10,14 @@ function Cambio(id1,id2,event) {
 		y.style.display = "block";
 	}
 }
-
+function myFunction5() {
+	var modal = document.getElementById("myModal");
+	if (modal.style.display == "none") {
+		modal.style.display = "block";
+	} else {
+		modal.style.display = "none";
+	}
+}
 //jQuery
 $(document).ready(function()
 	{

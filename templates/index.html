@@ -60,12 +60,14 @@
 				<p class="description"><I>Flask is the framework used to run the website</I></p>
 			</div>
 			<div class="option">
-				<p><img class="logo" src="{{ url_for('static', filename='go.png') }}"></p>
+				<p><img class="logo" onclick="myFunction5()" src="{{ url_for('static', filename='go.png') }}"></p>
+				<div id="myModal" class="modal" style="display:none;">
+					<div class="modal-content">
+						<span class="close" style="width:5%;padding-left:95%;" onclick="myFunction5()">&times;</span>
+						<div onclick="myFunction5()" class="ima"><img src="{{ url_for('static', filename='deploy_explained.svg') }}"></div>
+					</div>
+				</div>
 				<p class="description"><I>Go was used to auomate the deploy</I></p>
-			</div>
-			<div class="option">
-				<p><img class="logo" src="{{ url_for('static', filename='deploy_explained.svg') }}"></p>
-				<p class="description"><I>Testing working</I></p>
 			</div>
 			<div class="option">
 				<p><img class="logo" src="{{ url_for('static', filename='jquery.png') }}"></p>

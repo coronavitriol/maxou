@@ -42,6 +42,6 @@ func main() {
 		fmt.Printf("Let's upload the github...")
 		CMD_call(commandes8, true)
 		fmt.Printf("Let's upload the heroku...")
-		CMD_call(commandes9, true)
+		CMD_call(commandes9, false)
 	}
 }

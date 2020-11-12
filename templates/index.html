@@ -74,6 +74,13 @@
 				<p><img class="logo" src="{{ url_for('static', filename='jquery.png') }}"></p>
 				<p class="description"><I>jQuery is a cool framework to update HTML</I></p>
 			</div>
+			<form action="{{ url_for('index') }}" method="post">
+				<p><img class="logo" src="{{ url_for('static', filename='DB.png') }}"></p>
+				<p><button  type="submit" name="BDD" value="BDD">download</button></p>
+
+
+
+			</form>
 			<footer>
 				<p>{{Projet}} V{{Version}}</p>
 			</footer>

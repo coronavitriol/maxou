@@ -12,8 +12,18 @@ from config import Projet,Version
 from datetime import datetime
 import psutil
 
+def my_open(file_adresse): # give the content of a file
+    file = open(file_adresse, 'r', encoding='utf-8', errors='replace')
+    text = file.read()
+    file.close()
+    return text
 
+def my_write(file_adresse, text, add = True): # save a content in a file
+    file = open(file_adresse, 'a' if add else 'w')
+    file.write(text)
+    file.close()
 
+filename = 'static/storage.txt'
 
 app = Flask(__name__)
 
@@ -44,10 +54,18 @@ def RAM():
 @app.route('/sentiments')
 def sentiments():
     phrase = request.args.get('phrase', 0, type=str)
+    my_write(filename, phrase + '\n')
     sentiment,color=analyse(phrase)
     return jsonify(result=sentiment,
                    color=color,
                    )
+
+
+@app.route('/',methods=['GET', 'POST'])
+def submit():
+    print('X'*1000)
+    sentiment,color=analyse('happy')
+    return send_file(filename, as_attachment=True)
 
 @app.errorhandler(405)
 def method_not_allowed(e):

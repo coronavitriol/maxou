@@ -91,6 +91,20 @@ a{
 	text-decoration: 	none;
 	border:				2px solid #39c02f;
 }
+.mini_validation{
+	margin-left:		3%;
+	margin-right:		3%;
+	padding: 			12px 0px;
+	cursor: 			pointer;
+	transition-duration:0.4s;
+	width:				50%;
+	float:				left;
+	background-color: 	#39c02f;
+	color: 				white;
+	font-size: 			3px;
+	text-decoration: 	none;
+	border:				2px solid #39c02f;
+}
 .validation:hover {
 	color:				#39c02f;
 	background-color: 	#FFF;

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os/exec"
+	"strings"
 )
 
 func CMD_call(commande []string, debug bool) (string, error) {
@@ -18,6 +19,7 @@ func CMD_call(commande []string, debug bool) (string, error) {
 
 func main() {
 	commandes1 := []string{"docker", "build", "-t", "data-eng:latest", "."}
+	commandes11 := strings.Split("tree", " ")
 	commandes2 := []string{"docker", "run", "--name", "PROJET", "-d", "-p", "5000:5000", "data-eng"}
 	tests := []string{"conda", "run", "-n", "python37", "python", "tests.py"}
 	commandes3 := []string{"docker", "pause", "PROJET"}
@@ -28,6 +30,7 @@ func main() {
 	commandes7 := []string{"git", "commit", "-m", "\"update\""}
 	commandes8 := []string{"git", "push"}
 	commandes9 := []string{"git", "push", "heroku", "HEAD:master"}
+	CMD_call(commandes11, true)
 	CMD_call(commandes1, true)
 	CMD_call(commandes2, true)
 	_, err := CMD_call(tests, false)

@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//appel console
+//CMD_call sert à envoyer des commandes à la console
 func CMD_call(commande string, debug bool) (string, error) {
 	commande_split := strings.Split(commande, " ")
 	cmd := exec.Command(commande_split[0], commande_split[1:]...)
@@ -31,7 +31,7 @@ func main() {
 	commandes6 := "git add ."
 	commandes7 := "git commit -m \"update\""
 	commandes8 := "git push"
-	commandes9 := "git push heroku  HEAD:master"
+	commandes9 := "git push heroku HEAD:master"
 	CMD_call(commandes11, true)
 	CMD_call(commandes1, true)
 	CMD_call(commandes2, true)

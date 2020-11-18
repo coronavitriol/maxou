@@ -7,10 +7,10 @@ import (
 	"strings"
 )
 
-//CMD_call sert à envoyer des commandes à la console
-func CMD_call(commande string, debug bool) (string, error) {
-	commande_split := strings.Split(commande, " ")
-	cmd := exec.Command(commande_split[0], commande_split[1:]...)
+//CMDcall sert à envoyer des commandes à la console
+func CMDcall(commande string, debug bool) (string, error) {
+	commandesplit := strings.Split(commande, " ")
+	cmd := exec.Command(commandesplit[0], commandesplit[1:]...)
 	out, err := cmd.CombinedOutput()
 	fmt.Printf("combined out:\n%s\n", string(out))
 	if (err != nil) && (debug == true) {
@@ -32,21 +32,21 @@ func main() {
 	commandes7 := "git commit -m \"update\""
 	commandes8 := "git push"
 	commandes9 := "git push heroku HEAD:master"
-	CMD_call(commandes11, true)
-	CMD_call(commandes1, true)
-	CMD_call(commandes2, true)
-	_, err := CMD_call(tests, false)
-	CMD_call(commandes3, true)
-	CMD_call(commandes4, true)
-	CMD_call(commandes5, true)
+	CMDcall(commandes11, true)
+	CMDcall(commandes1, true)
+	CMDcall(commandes2, true)
+	_, err := CMDcall(tests, false)
+	CMDcall(commandes3, true)
+	CMDcall(commandes4, true)
+	CMDcall(commandes5, true)
 	if err == nil {
 		fmt.Printf("Let's upload the git...")
-		CMD_call(commandes55, true)
-		CMD_call(commandes6, true)
-		CMD_call(commandes7, true)
+		CMDcall(commandes55, true)
+		CMDcall(commandes6, true)
+		CMDcall(commandes7, true)
 		fmt.Printf("Let's upload the github...")
-		CMD_call(commandes8, true)
+		CMDcall(commandes8, true)
 		fmt.Printf("Let's upload the heroku...")
-		CMD_call(commandes9, false)
+		CMDcall(commandes9, false)
 	}
 }
